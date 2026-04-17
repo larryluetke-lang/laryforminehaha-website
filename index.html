@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larry Luetke for Minnehaha County Commissioner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #c53030;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #c53030;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 2rem;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 4rem;
+            color: #a0aec0;
+            overflow: hidden;
+        }
+        
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 50%;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 span {
+            color: #c53030;
+        }
+        
+        .hero-tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #c53030;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #9b2c2c;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #1a365d;
+        }
+        
+        /* Issues Section */
+        .issues {
+            padding: 4rem 0;
+            background: #f7fafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1a365d;
+        }
+        
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .issue-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .issue-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .issue-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .issue-card h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-photo {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #a0aec0;
+            overflow: hidden;
+        }
+        
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .about-text h2 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Get Involved */
+        .get-involved {
+            padding: 4rem 0;
+            background: #1a365d;
+            color: white;
+            text-align: center;
+        }
+        
+        .get-involved h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .get-involved p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .volunteer-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .volunteer-form input,
+        .volunteer-form textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .volunteer-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        /* Donate Section */
+        .donate {
+            padding: 4rem 0;
+            text-align: center;
+            background: #f7fafc;
+        }
+        
+        .donate h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .donate p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #4a5568;
+        }
+        
+        .donate-note {
+            background: #fffaf0;
+            border: 1px solid #fbd38d;
+            padding: 1rem;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #744210;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #c53030;
+        }
+        
+        .paid-for {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-photo {
+                margin: 0 auto;
+            }
+            
+            .issues-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Larry<span>Luetke</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#issues">Issues</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#donate">Donate</a></li>
+            </ul>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-photo"><img src="larry-hero.jpg" alt="Larry Luetke" width="250" height="250" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+                <h1>Larry Luetke for <span>Minnehaha County Commissioner</span></h1>
+                <p class="hero-tagline">
+                    I've spent 20 years helping families put down roots in Minnehaha County. 
+                    Now I want to protect what makes it a great place to live — 
+                    reasonable taxes, disciplined growth, and safe communities.
+                </p>
+                <a href="#volunteer" class="btn">Join the Campaign</a>
+                <a href="#donate" class="btn btn-outline">Support Larry</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Issues Section -->
+    <section class="issues" id="issues">
+        <div class="container">
+            <h2 class="section-title">My Priorities</h2>
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-icon">💰</div>
+                    <h3>Property Taxes</h3>
+                    <p>Homeowners deserve relief from rising property tax burdens. I'll fight for responsible budgeting that respects your hard-earned money while maintaining essential services.</p>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🏗️</div>
+                    <h3>Disciplined Growth</h3>
+                    <p>Minnehaha County is growing fast — and growth without discipline costs taxpayers. I'll fight for infrastructure that keeps pace with development, responsible land use, and long-term planning that doesn't saddle future generations with debt.</p>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Safe Communities</h3>
+                    <p>Every family deserves to feel safe in their neighborhood. I'll support our law enforcement, back proven public safety programs, and ensure Minnehaha County has the resources needed to protect our residents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-photo"><img src="larry-hero.jpg" alt="Larry Luetke" width="300" height="300" style="width:100%;height:100%;object-fit:cover;border-radius:10px;" /></div>
+                <div class="about-text">
+                    <h2>Why I'm Running</h2>
+                    <p>Since 2003, I've worked with hundreds of families in Minnehaha County — helping them find homes, put down roots, and build their lives here. I've seen firsthand what makes this community special.</p>
+                    <p>But I've also seen the challenges: rising costs, growing pains from rapid development, and concerns about the future. I believe we need practical, common-sense leadership that puts families first.</p>
+                    <p>I'm not a career politician. I'm a lifelong South Dakotan who cares deeply about this place. I want to bring my experience working with people and solving problems to the County Commission.</p>
+                    <p><strong>I'd be honored to earn your vote.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section class="get-involved" id="volunteer">
+        <div class="container">
+            <h2>Join the Campaign</h2>
+            <p>We can't do this without you. Sign up to volunteer, host a yard sign, or help spread the word.</p>
+            <form class="volunteer-form" action="https://formspree.io/f/xbdpyqjn" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone">
+                <textarea name="message" placeholder="How would you like to help? (Yard sign, door knocking, phone calls, etc.)"></textarea>
+                <button type="submit" class="btn" style="border: none; cursor: pointer;">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section class="donate" id="donate">
+        <div class="container">
+            <h2>Support the Campaign</h2>
+            <p>Your contribution helps us reach voters across Minnehaha County.</p>
+            <a href="https://secure.winred.com/larry-luetke-for-minnehaha-county-commission/donate-today" class="btn" target="_blank" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">Donate Now</a>
+            <div class="donate-note" style="margin-top: 1.5rem;">
+                <strong>Contribution Limits:</strong> South Dakota law limits individual contributions to $1,000 per calendar year. Contributions are not tax deductible.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/LarryForMinnehaha" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="mailto:larry@larryluetke.com" aria-label="Email">✉️</a>
+                </div>
+                <p>&copy; 2026 Larry Luetke for Minnehaha County Commissioner</p>
+                <p class="paid-for">Paid for by Larry Luetke for Minnehaha County Commissioner</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
